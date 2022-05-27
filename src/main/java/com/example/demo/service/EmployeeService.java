@@ -3,8 +3,9 @@ package com.example.demo.service;
 import com.example.demo.dto.req.EmployeeLoginReqDto;
 import com.example.demo.dto.req.EmployeeReqDto;
 import com.example.demo.dto.req.EmployeeUpdatePasswordReqDto;
+import com.example.demo.dto.res.EmpResDto;
 import com.example.demo.dto.res.EmployeeLoginResDto;
-import com.example.demo.model.EmployeeMaster;
+
 
 import java.util.List;
 
@@ -25,4 +26,7 @@ public interface EmployeeService {
     EmployeeLoginResDto employeeLogin(EmployeeLoginReqDto employeeLoginReqDto);
 
     Boolean employeeUpdatePassword(EmployeeUpdatePasswordReqDto employeeUpdatePasswordReqDto);
+
+
+    EmpResDto checkEmployeeMobNo(String employeeMobNo);
 }

@@ -21,4 +21,7 @@ public interface EmployeeDao extends JpaRepository<EmployeeMaster,Integer> {
 
     @Query("update EmployeeMaster as em set em.employeePassword=:employeeNewPassword where em.employeeId=:employeeId")
     Integer employeeUpdatePassword(@Param("employeeId") Integer employeeId, @Param("employeeNewPassword") String employeeNewPassword);
+
+    EmployeeMaster findByEmployeeMobNo(String employeeMobNo);
+
 }

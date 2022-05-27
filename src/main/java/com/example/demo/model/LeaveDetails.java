@@ -33,8 +33,7 @@ public class LeaveDetails {
 
     private  boolean acceptRejectFlag;
 
-    private String status;
-
+    private boolean status;
 
 
 }

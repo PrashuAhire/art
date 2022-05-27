@@ -21,4 +21,5 @@ public class EmployeeReqDto {
     private String designationId;
     private Date employeeDOB;
     private Date employeeRegisterDate;
+    private Integer companyId;
 }

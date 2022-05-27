@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.req.EmployeeLoginReqDto;
 import com.example.demo.dto.req.EmployeeReqDto;
 import com.example.demo.dto.req.EmployeeUpdatePasswordReqDto;
+import com.example.demo.dto.res.EmpResDto;
 import com.example.demo.dto.res.EmployeeLoginResDto;
 import com.example.demo.model.EmployeeMaster;
 import com.example.demo.service.EmployeeService;
@@ -25,16 +26,24 @@ public class EmployeeMasterController {
     @PostMapping
     private ResponseEntity create(@RequestBody EmployeeReqDto employeeReqDto){
         boolean flag = employeeService.create(employeeReqDto);
-        if(flag){return new ResponseEntity(flag, HttpStatus.CREATED);}
-        else{return new ResponseEntity(flag,HttpStatus.INTERNAL_SERVER_ERROR);}
+        if(flag)
+        {
+            return new ResponseEntity(flag, HttpStatus.CREATED);}
+        else
+        {
+            return new ResponseEntity(flag,HttpStatus.INTERNAL_SERVER_ERROR);}
     }
 
     @PutMapping
     private ResponseEntity update(@RequestBody EmployeeReqDto employeeReqDto){
 
         boolean flag = employeeService.update(employeeReqDto);
-        if(flag){return new ResponseEntity(flag, HttpStatus.OK);}
-        else{return new ResponseEntity(flag,HttpStatus.INTERNAL_SERVER_ERROR);}
+        if(flag)
+        {
+            return new ResponseEntity(flag, HttpStatus.OK);}
+        else
+        {
+            return new ResponseEntity(flag,HttpStatus.INTERNAL_SERVER_ERROR);}
     }
 
 
@@ -70,6 +79,18 @@ public class EmployeeMasterController {
     {
         Boolean flag=employeeService.employeeUpdatePassword(employeeUpdatePasswordReqDto);
         return new ResponseEntity(employeeUpdatePasswordReqDto,HttpStatus.OK);
+    }
+
+    @GetMapping("/checkEmployeeMobNo/{employeeMobNo}")
+    private ResponseEntity checkEmployeeMobNo(@PathVariable String employeeMobNo) {
+
+        EmpResDto empResDto = employeeService.checkEmployeeMobNo(employeeMobNo);
+
+        if (empResDto != null)
+            return  new ResponseEntity(empResDto,HttpStatus.OK);
+        else
+            return  new ResponseEntity(empResDto,HttpStatus.INTERNAL_SERVER_ERROR);
+
     }
 
 

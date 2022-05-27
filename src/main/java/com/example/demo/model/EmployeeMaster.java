@@ -18,8 +18,11 @@ public class EmployeeMaster {
     @Column(length = 10)
     private Integer employeeId;
 
+    @Column(length = 10)
+    private String employeeUserName;
+
     @Column(length = 20)
-    private String employeeFName;
+    private String employeeName;
 
     @Column(length = 500,unique = true)
     private String employeeMail;
@@ -54,5 +57,7 @@ public class EmployeeMaster {
     private Date employeeRegisterDate;
 
 
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="company_id")
+    private  CompanyMaster companyMaster;
 }
